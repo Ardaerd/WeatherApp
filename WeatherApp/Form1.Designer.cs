@@ -30,19 +30,23 @@ namespace WeatherApp
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchBtn = new System.Windows.Forms.Button();
             this.labelCondition = new System.Windows.Forms.Label();
             this.labelDetails = new System.Windows.Forms.Label();
             this.labelSunset = new System.Windows.Forms.Label();
             this.labelSunrise = new System.Windows.Forms.Label();
             this.labelSunrise_2 = new System.Windows.Forms.Label();
             this.labelSunset_2 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelPressure_2 = new System.Windows.Forms.Label();
+            this.labelWindSpeed_2 = new System.Windows.Forms.Label();
             this.labelWindSpeed = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.weatherIcon = new System.Windows.Forms.PictureBox();
+            this.textBox_city = new System.Windows.Forms.TextBox();
+            this.labelCondition_2 = new System.Windows.Forms.Label();
+            this.labelDetails_2 = new System.Windows.Forms.Label();
+            this.labelTemp = new System.Windows.Forms.Label();
+            this.labelTemp_2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.weatherIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,26 +62,18 @@ namespace WeatherApp
             this.label1.Text = "City:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // comboBox1
+            // searchBtn
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 62);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 36);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(334, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 36);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
+            this.searchBtn.AutoSize = true;
+            this.searchBtn.BackColor = System.Drawing.Color.Transparent;
+            this.searchBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.Location = new System.Drawing.Point(345, 69);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(135, 36);
+            this.searchBtn.TabIndex = 4;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelCondition
             // 
@@ -151,29 +147,29 @@ namespace WeatherApp
             this.labelSunset_2.TabIndex = 10;
             this.labelSunset_2.Text = "N/A";
             // 
-            // label2
+            // labelPressure_2
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(542, 267);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 29);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "N/A";
+            this.labelPressure_2.AutoSize = true;
+            this.labelPressure_2.BackColor = System.Drawing.Color.Transparent;
+            this.labelPressure_2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPressure_2.ForeColor = System.Drawing.Color.White;
+            this.labelPressure_2.Location = new System.Drawing.Point(542, 267);
+            this.labelPressure_2.Name = "labelPressure_2";
+            this.labelPressure_2.Size = new System.Drawing.Size(51, 29);
+            this.labelPressure_2.TabIndex = 14;
+            this.labelPressure_2.Text = "N/A";
             // 
-            // label3
+            // labelWindSpeed_2
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(542, 212);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 29);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "N/A";
+            this.labelWindSpeed_2.AutoSize = true;
+            this.labelWindSpeed_2.BackColor = System.Drawing.Color.Transparent;
+            this.labelWindSpeed_2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWindSpeed_2.ForeColor = System.Drawing.Color.White;
+            this.labelWindSpeed_2.Location = new System.Drawing.Point(542, 212);
+            this.labelWindSpeed_2.Name = "labelWindSpeed_2";
+            this.labelWindSpeed_2.Size = new System.Drawing.Size(51, 29);
+            this.labelWindSpeed_2.TabIndex = 13;
+            this.labelWindSpeed_2.Text = "N/A";
             // 
             // labelWindSpeed
             // 
@@ -202,11 +198,64 @@ namespace WeatherApp
             // weatherIcon
             // 
             this.weatherIcon.BackColor = System.Drawing.Color.Transparent;
-            this.weatherIcon.Location = new System.Drawing.Point(493, 358);
+            this.weatherIcon.Location = new System.Drawing.Point(44, 148);
             this.weatherIcon.Name = "weatherIcon";
             this.weatherIcon.Size = new System.Drawing.Size(100, 50);
             this.weatherIcon.TabIndex = 15;
             this.weatherIcon.TabStop = false;
+            // 
+            // textBox_city
+            // 
+            this.textBox_city.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_city.Location = new System.Drawing.Point(119, 66);
+            this.textBox_city.Name = "textBox_city";
+            this.textBox_city.Size = new System.Drawing.Size(203, 36);
+            this.textBox_city.TabIndex = 16;
+            // 
+            // labelCondition_2
+            // 
+            this.labelCondition_2.AutoSize = true;
+            this.labelCondition_2.BackColor = System.Drawing.Color.Transparent;
+            this.labelCondition_2.Enabled = false;
+            this.labelCondition_2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCondition_2.Location = new System.Drawing.Point(183, 212);
+            this.labelCondition_2.Name = "labelCondition_2";
+            this.labelCondition_2.Size = new System.Drawing.Size(0, 29);
+            this.labelCondition_2.TabIndex = 17;
+            // 
+            // labelDetails_2
+            // 
+            this.labelDetails_2.AutoSize = true;
+            this.labelDetails_2.BackColor = System.Drawing.Color.Transparent;
+            this.labelDetails_2.Enabled = false;
+            this.labelDetails_2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDetails_2.Location = new System.Drawing.Point(183, 265);
+            this.labelDetails_2.Name = "labelDetails_2";
+            this.labelDetails_2.Size = new System.Drawing.Size(0, 29);
+            this.labelDetails_2.TabIndex = 18;
+            // 
+            // labelTemp
+            // 
+            this.labelTemp.AutoSize = true;
+            this.labelTemp.BackColor = System.Drawing.Color.Transparent;
+            this.labelTemp.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTemp.ForeColor = System.Drawing.Color.White;
+            this.labelTemp.Location = new System.Drawing.Point(378, 324);
+            this.labelTemp.Name = "labelTemp";
+            this.labelTemp.Size = new System.Drawing.Size(73, 29);
+            this.labelTemp.TabIndex = 19;
+            this.labelTemp.Text = "Temp:";
+            // 
+            // labelTemp_2
+            // 
+            this.labelTemp_2.AutoSize = true;
+            this.labelTemp_2.BackColor = System.Drawing.Color.Transparent;
+            this.labelTemp_2.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTemp_2.ForeColor = System.Drawing.Color.White;
+            this.labelTemp_2.Location = new System.Drawing.Point(542, 324);
+            this.labelTemp_2.Name = "labelTemp_2";
+            this.labelTemp_2.Size = new System.Drawing.Size(0, 29);
+            this.labelTemp_2.TabIndex = 20;
             // 
             // Form1
             // 
@@ -215,9 +264,14 @@ namespace WeatherApp
             this.BackgroundImage = global::WeatherApp.Properties.Resources.paul_pastourmatzis_KT3WlrL_bsg_unsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTemp_2);
+            this.Controls.Add(this.labelTemp);
+            this.Controls.Add(this.labelDetails_2);
+            this.Controls.Add(this.labelCondition_2);
+            this.Controls.Add(this.textBox_city);
             this.Controls.Add(this.weatherIcon);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelPressure_2);
+            this.Controls.Add(this.labelWindSpeed_2);
             this.Controls.Add(this.labelWindSpeed);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelSunset_2);
@@ -226,12 +280,12 @@ namespace WeatherApp
             this.Controls.Add(this.labelSunset);
             this.Controls.Add(this.labelDetails);
             this.Controls.Add(this.labelCondition);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.weatherIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,19 +295,23 @@ namespace WeatherApp
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Label labelCondition;
         private System.Windows.Forms.Label labelDetails;
         private System.Windows.Forms.Label labelSunset;
         private System.Windows.Forms.Label labelSunrise;
         private System.Windows.Forms.Label labelSunrise_2;
         private System.Windows.Forms.Label labelSunset_2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelPressure_2;
+        private System.Windows.Forms.Label labelWindSpeed_2;
         private System.Windows.Forms.Label labelWindSpeed;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox weatherIcon;
+        private System.Windows.Forms.TextBox textBox_city;
+        private System.Windows.Forms.Label labelCondition_2;
+        private System.Windows.Forms.Label labelDetails_2;
+        private System.Windows.Forms.Label labelTemp;
+        private System.Windows.Forms.Label labelTemp_2;
     }
 }
 
