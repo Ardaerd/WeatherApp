@@ -35,7 +35,7 @@ namespace WeatherApp
         {
             using (WebClient web = new WebClient())
             {
-                string url = String.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}",textBox_city.Text,apiKey);
+                string url = String.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&units=metric&appid={1}", textBox_city.Text,apiKey);
                 Console.WriteLine(url);
                 var json = web.DownloadString(url);
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
@@ -45,15 +45,23 @@ namespace WeatherApp
                 labelCondition_2.Text = Info.weather[0].main;
                 labelDetails_2.Text = Info.weather[0].description;
 
-                labelSunset_2.Text = Info.sys.sunset.ToString();
-                labelSunrise_2.Text = Info.sys.sunrise.ToString();
+                labelSunset_2.Text = convertDateTime(Info.sys.sunset).ToShortTimeString();
+                labelSunrise_2.Text = convertDateTime(Info.sys.sunrise).ToShortTimeString();
 
                 labelWindSpeed_2.Text = Info.wind.speed.ToString();
 
                 labelPressure_2.Text = Info.main.pressure.ToString();
 
-                labelTemp_2.Text = Info.main.temp.ToString();
+                labelTemp_2.Text = Info.main.temp.ToString() + " °C";
             }
+        }
+
+        DateTime convertDateTime (long sec)
+        {
+            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
+            day = day.AddSeconds(sec).ToLocalTime();
+
+            return day;
         }
          
         private void Form1_Load(object sender, EventArgs e)

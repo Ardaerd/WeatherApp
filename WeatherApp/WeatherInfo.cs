@@ -37,8 +37,8 @@ namespace WeatherApp
 
         public class sys
         {
-            public string sunrise { get; set; }
-            public string sunset { get; set; }
+            public long sunrise { get; set; }
+            public long sunset { get; set; }
         }
 
         public class root
